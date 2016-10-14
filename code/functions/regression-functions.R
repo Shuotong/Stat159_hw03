@@ -3,7 +3,7 @@
 # Expected Input: a regression object
 # Expected Output: value of Residual Sum of Squares
 residual_sum_squares <- function (reg_obj) {
-  sum(reg_obj.fit$residuals^2)
+  sum(reg_obj$residuals^2)
 }
 
 
@@ -38,7 +38,7 @@ f_statistic <- function(reg_obj) {
 # Description: Computes Residual Standard Error: the standard error of the residual
 # Expected Input: a regression object
 # Expected Output: value of Residual Standard Error
-residual_std_error <- function(regression_object) {
+residual_std_error <- function(reg_obj) {
   num_of_predictor <- length(reg_obj$coefficients) - 1
   n <- length(reg_obj$fitted.values)
   rss <- residual_sum_squares(reg_obj)
