@@ -57,9 +57,11 @@ install.packages("xtable")
 install.packages("testthat")
 ````
 
-Run `make` to reproduce the report
-Run `make clean` to delete the report
-Run `make data` to download data
+Run `make` to reproduce the report.
+
+Run `make clean` to delete the report.
+
+Run `make data` to download data.
 
 More detailed instructions are given in README.md
 
