@@ -15,7 +15,7 @@ rownames(summaries) <- c('TV', 'Radio', 'Newspaper','Sales')
 colnames(summaries) <- names(tv)
 
 # Compute matrix of correlations and save
-cor_matrix <- cor(advertising)
+cor_matrix <- cor(advertising[2:5])
 save(cor_matrix, file = "data/correlation-matrix.RData")
 
 # Write to eda-output
