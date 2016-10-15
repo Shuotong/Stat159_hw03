@@ -1,4 +1,4 @@
-advertising <- read.csv("../../data/Advertising.csv")
+advertising <- read.csv("data/Advertising.csv")
 
 # Summaries
 tv <- summary(advertising$TV)
@@ -16,34 +16,34 @@ colnames(summaries) <- names(tv)
 
 # Compute matrix of correlations and save
 cor_matrix <- cor(advertising)
-save(cor_matrix, file = "../../data/correlation-matrix.RData")
+save(cor_matrix, file = "data/correlation-matrix.RData")
 
 # Write to eda-output
-sink(file = "../../data/eda-output.txt")
+sink(file = "data/eda-output.txt")
 writeLines("Summary Statistics")
 summaries
-cat("Correlation Matrix \n\n", file = "../../data/eda-output.txt", append = TRUE)
-write.table(cor_matrix, file ="../../data/eda-output.txt", append = TRUE, sep = " ")
+cat("Correlation Matrix \n\n", file = "data/eda-output.txt", append = TRUE)
+write.table(cor_matrix, file ="data/eda-output.txt", append = TRUE, sep = " ")
 sink()
 
 
 #Histograms
-png(file = "../../images/histogram-tv.png")
+png(file = "images/histogram-tv.png")
 hist(advertising$TV, main = "Histogram of TV advertising budgets")
 dev.off()
 
-png(file = "../../images/histogram-radio.png")
+png(file = "images/histogram-radio.png")
 hist(advertising$TV, main = "Histogram of Radio advertising budgets")
 dev.off()
 
-png(file = "../../images/histogram-newspaper.png")
+png(file = "images/histogram-newspaper.png")
 hist(advertising$Sales, main = "Histogram of Newspaper advertising budgets")
 dev.off()
 
-png(file = "../../images/histogram-sales.png")
+png(file = "images/histogram-sales.png")
 hist(advertising$Sales, main = "Histogram of Sales")
 dev.off()
 
-png(file = "../../images/histogram-sales.png")
+png(file = "images/histogram-sales.png")
 pairs(advertising, main = "Scatterplot matrix of advertising data")
 dev.off()

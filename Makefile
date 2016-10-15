@@ -1,9 +1,11 @@
-.PHONY: data tests eda regression report clean all
+.PHONY: all data tests eda regression report clean all
 
 eda_script = code/scripts/eda-script.R
 regression_script = code/scripts/regression-script.R
 data = data/Advertising.csv
 report = report/report.Rmd
+
+all: sessionInfo data eda regression report
 
 # download the file Advertising.csv
 data:
@@ -13,11 +15,11 @@ tests: code/test-that.R code/tests/test-regression.R
 	Rscript code/test-that.R
 
 # perform the exploratory data analysis
-eda: $(eda_script) $(data)
-	Rscript eda-script.R
+eda: data $(eda_script)
+	Rscript $(eda_script)
 
 # perform the series of regression analyses
-regression: $(regression_script) $(data)
+regression: $(regression_script) data
 	Rscript $(regression_script)
 
 # display session info
